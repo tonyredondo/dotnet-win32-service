@@ -1,8 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace DasMulli.Win32.ServiceUtils
+﻿namespace DasMulli.Win32.ServiceUtils
 {
-    [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "External API")]
     internal enum ServiceConfigInfoTypeLevel : uint
     {
         ServiceDescription = 1,

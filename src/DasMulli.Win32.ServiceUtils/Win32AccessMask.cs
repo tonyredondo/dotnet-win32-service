@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace DasMulli.Win32.ServiceUtils
 {
     [Flags]
-    [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "External API")]
     internal enum Win32AccessMask : uint
     {
         Delete = 0x00010000,

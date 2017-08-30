@@ -2,14 +2,11 @@
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
-using JetBrains.Annotations;
 
 namespace DasMulli.Win32.ServiceUtils
 {
-    [UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
     internal class ServiceControlManager : SafeHandle
     {
-        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Exposed for testing via InternalsVisibleTo.")]
         internal INativeInterop NativeInterop { get; set; } = Win32Interop.Wrapper;
 
         internal ServiceControlManager() : base(IntPtr.Zero, ownsHandle: true)
@@ -62,14 +59,10 @@ namespace DasMulli.Win32.ServiceUtils
 
         public ServiceHandle OpenService(string serviceName, ServiceControlAccessRights desiredControlAccess)
         {
-            ServiceHandle service;
-            Win32Exception errorException;
-
-            if (!TryOpenService(serviceName, desiredControlAccess, out service, out errorException))
+            if (!TryOpenService(serviceName, desiredControlAccess, out ServiceHandle service, out Win32Exception errorException))
             {
                 throw errorException;
             }
-
             return service;
         }
 

@@ -2,12 +2,10 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 namespace DasMulli.Win32.ServiceUtils
 {
     // This implementation is roughly based on https://msdn.microsoft.com/en-us/library/bb540475(v=vs.85).aspx
-    [PublicAPI]
     public sealed class Win32ServiceHost
     {
         private readonly string serviceName;
@@ -24,12 +22,12 @@ namespace DasMulli.Win32.ServiceUtils
 
         private readonly TaskCompletionSource<int> stopTaskCompletionSource = new TaskCompletionSource<int>();
 
-        public Win32ServiceHost([NotNull] IWin32Service service)
+        public Win32ServiceHost(IWin32Service service)
             : this(service, Win32Interop.Wrapper)
         {
         }
 
-        internal Win32ServiceHost([NotNull] IWin32Service service, [NotNull] INativeInterop nativeInterop)
+        internal Win32ServiceHost(IWin32Service service, INativeInterop nativeInterop)
         {
             if (service == null)
             {
@@ -48,12 +46,12 @@ namespace DasMulli.Win32.ServiceUtils
             serviceControlHandlerDelegate = HandleServiceControlCommand;
         }
 
-        public Win32ServiceHost([NotNull] string serviceName, [NotNull] IWin32ServiceStateMachine stateMachine)
+        public Win32ServiceHost(string serviceName, IWin32ServiceStateMachine stateMachine)
             : this(serviceName, stateMachine, Win32Interop.Wrapper)
         {
         }
 
-        internal Win32ServiceHost([NotNull] string serviceName, [NotNull] IWin32ServiceStateMachine stateMachine, [NotNull] INativeInterop nativeInterop)
+        internal Win32ServiceHost(string serviceName, IWin32ServiceStateMachine stateMachine, INativeInterop nativeInterop)
         {
             if (serviceName == null)
             {

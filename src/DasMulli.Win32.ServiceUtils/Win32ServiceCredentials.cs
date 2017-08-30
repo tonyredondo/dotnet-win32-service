@@ -1,9 +1,7 @@
 ﻿using System;
-using JetBrains.Annotations;
 
 namespace DasMulli.Win32.ServiceUtils
 {
-    [PublicAPI]
     public struct Win32ServiceCredentials : IEquatable<Win32ServiceCredentials>
     {
         public string UserName { get; }

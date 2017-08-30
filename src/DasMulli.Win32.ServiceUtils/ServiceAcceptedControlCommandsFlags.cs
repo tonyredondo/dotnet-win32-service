@@ -1,10 +1,8 @@
 ﻿using System;
-using JetBrains.Annotations;
 
 namespace DasMulli.Win32.ServiceUtils
 {
     [Flags]
-    [PublicAPI]
     public enum ServiceAcceptedControlCommandsFlags : uint
     {
         None = 0,

@@ -1,8 +1,5 @@
-﻿using JetBrains.Annotations;
-
-namespace DasMulli.Win32.ServiceUtils
+﻿namespace DasMulli.Win32.ServiceUtils
 {
-    [PublicAPI]
     public enum ErrorSeverity : uint
     {
         Ignore = 0,

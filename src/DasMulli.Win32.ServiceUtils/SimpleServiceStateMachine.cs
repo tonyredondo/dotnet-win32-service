@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace DasMulli.Win32.ServiceUtils
+﻿namespace DasMulli.Win32.ServiceUtils
 {
     public sealed class SimpleServiceStateMachine : IWin32ServiceStateMachine
     {
@@ -12,7 +10,6 @@ namespace DasMulli.Win32.ServiceUtils
             this.serviceImplementation = serviceImplementation;
         }
 
-        [SuppressMessage("ReSharper", "ParameterHidesMember")]
         public void OnStart(string[] startupArguments, ServiceStatusReportCallback statusReportCallback)
         {
             this.statusReportCallback = statusReportCallback;
